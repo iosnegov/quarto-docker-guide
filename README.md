@@ -1,31 +1,35 @@
-# **Quarto Docker Guide: Transparent Multi-Language Environment Setup**
+# Quarto Docker Guide: Transparent Multi-Language Environment Setup
 
-A comprehensive, educational Docker guide for building **Quarto** environments from scratch using **Ubuntu 24.04**. This project demonstrates transparent, step-by-step construction of isolated environments supporting **R**, **Python**, and **Julia** with full PDF and HTML rendering capabilities.
+*A guide demonstrating how to build isolated Docker environments for Quarto from scratch, covering R, Python, and Julia support with full PDF and HTML rendering.*
 
-## **Project Philosophy**
+[![License: MIT-0](https://img.shields.io/badge/License-MIT--0-blue.svg)](LICENSE.txt)
+[![Third-Party: Included](https://img.shields.io/badge/Third--Party-Included-orange.svg)](LICENSE.txt)
+
+## Project Philosophy
 
 This guide prioritizes **transparency over optimization**. Every package installation is explicitly documented and justified, allowing users to understand exactly what gets installed on their system and why. While not the most minimal approach, this methodology provides complete visibility into the environment construction process.
 
-## **Target Audience**
+## Target Audience
 
 - **Quarto users** seeking to containerize their workflows.
 - **Researchers** requiring reproducible multi-language environments.
 - **Data scientists** working with R, Python, and Julia in Quarto documents.
 - **Users** who want to understand system dependencies for PDF/HTML rendering.
 
-> **Note**:
-<br>1. Basic Docker knowledge is assumed. This guide focuses on Quarto-specific containerization, not Docker fundamentals.
-<br>2. Core system dependencies are prioritized over styling customization. LaTeX templates and CSS themes are separate concerns not covered in this guide.
-<br>3. While this project works on any Docker-supported platform, all command examples are written for GNU/Linux operating systems.
+> **Note**:  
+> 1. Basic Docker knowledge is assumed. This guide focuses on Quarto-specific containerization, not Docker fundamentals.  
+> 2. Core system dependencies are prioritized over styling customization. LaTeX templates and CSS themes are separate concerns not covered in this guide.  
+> 3. While this project works on any Docker-supported platform, all command examples are written for GNU/Linux operating systems.  
 
-## **Prerequisites**
+## Prerequisites
+
 1. **Docker Engine:** Docker Desktop or Docker Engine version.
 2. **Development Environment:** Visual Studio Code with Dev Containers extension for optimal development experience.
 
-## **Project Structure**
+## Project Structure
 
 ```bash
-.
+quarto-docker-guide/
 ├── 1.python/               # Python environment setup
 ├── 2.julia/                # Julia environment setup  
 ├── 3.r-lang/               # R environment setup
@@ -42,16 +46,16 @@ This guide prioritizes **transparency over optimization**. Every package install
 └── README.md               # This documentation
 ```
 
-## **Quick Start**
+## Quick Start
 
-### **I. Clone Repository**
+### I. Clone Repository
 
 ```bash
-git clone https://github.com/Sierra-Arn/quarto-docker-guide.git
+git clone https://github.com/snegoviol/quarto-docker-guide.git
 cd quarto-docker-guide
 ```
 
-### **II. Configure User Mapping for Dev Containers**
+### II. Configure User Mapping for Dev Containers
 
 For seamless file permissions between host and container, configure user IDs in `.devcontainer/devcontainer.json`:
 
@@ -70,7 +74,7 @@ id
 
 **Update the build arguments in `.devcontainer/devcontainer.json`:**
 
-```json
+```jsonc
 "args": {
     "DEV_USER": "vscode",        // Username for development user (VSCode default)
     "DEV_USER_ID": "1000",       // User ID - replace with your actual user ID
@@ -80,7 +84,7 @@ id
 
 **Example for user ID 1001 and group ID 1001:**
 
-```json
+```jsonc
 "args": {
     "DEV_USER": "vscode",
     "DEV_USER_ID": "1001",
@@ -88,14 +92,14 @@ id
 }
 ```
 
-### **III. Open in Dev Container**
+### III. Open in Dev Container
 
 1. Open the project in Visual Studio Code.
 2. Press `Ctrl + Shift + P`.
 3. Type and select: `Dev Containers: Rebuild and Reopen in Container`.
 4. Wait for the container to build and initialize.
 
-### **IV. Verify Installation**
+### IV. Verify Installation
 
 Once inside the container:
 
@@ -113,6 +117,7 @@ micromamba --version && \
 quarto render test.qmd --to html
 quarto render test.qmd --to pdf
 ```
+
 **Expected output verification:**
 - **Micromamba**: Package manager version.
 - **Python/R/Julia**: Language runtime versions. 
@@ -120,36 +125,41 @@ quarto render test.qmd --to pdf
 - **TinyTeX (tlmgr)**: LaTeX package manager version.
 - **Rendering**: Successful HTML and PDF generation from test document.
 
-## **Step-by-Step Learning Path**
+## Step-by-Step Learning Path
 
-### **1. Basic Language Environments**
+### 1. Basic Language Environments
+
 Start with individual language setups to understand core dependencies.
 
-### **2. PDF Rendering Capabilities**
+### 2. PDF Rendering Capabilities
+
 Add LaTeX support for PDF generation.
 
-### **3. Multi-Language Integration**
+### 3. Multi-Language Integration
+
 Combine all languages with cross-language communication.
 
-## **Key Design Decisions**
+## Key Design Decisions
 
-### **Package Management Strategy**
+### Package Management Strategy
+
 - **Micromamba over pip/apt**: Pre-compiled packages save build time and provide unified dependency resolution across languages.
 - **Conda-forge channel**: Community-maintained packages with consistent quality standards.
 
-### **LaTeX Distribution Choice**
+### LaTeX Distribution Choice
+
 - **TinyTeX over full TeX Live**: Minimal footprint with automatic package installation.
 - **On-demand package loading**: Only required packages downloaded during rendering.
 - **Quarto integration**: Native support via `quarto install tinytex`.
 
-### **User Security Model**
+### User Security Model
+
 - **Non-root execution**: All operations run as unprivileged user.
 - **Explicit permissions**: Clear ownership of conda environments and user directories.
 - **Volume mount compatibility**: User ID mapping for seamless file access.
 
-## **License**
+## License
 
-This project is distributed under the [MIT License](LICENSE).
-
-> **Third-Party Components**  
-> This project includes components with separate licenses. Font files and some dependencies may have different licensing terms. Please review individual component licenses before commercial use.
+This project contains both original source code and third-party components. 
+As a result, different parts of the repository are distributed under different licenses. 
+See [LICENSE.txt](LICENSE.txt) for details.

@@ -1,0 +1,23 @@
+Copyright (c) 2025-2026 Ilya Snegov
+
+This project contains both original source code and third-party components. 
+As a result, different parts of the repository are distributed under different 
+licenses.
+
+The licensing for specific parts of this repository is as follows:
+
+- resources/fonts/Fira_Code/
+  License:   SIL Open Font License, Version 1.1
+  Full text: LICENSES/Fira-Code-OFL-1.1.txt
+
+- resources/fonts/Open_Sans/
+  License:   SIL Open Font License, Version 1.1
+  Full text: LICENSES/Open-Sans-OFL-1.1.txt
+
+- resources/fonts/Roboto_Slab/
+  License:   Apache License, Version 2.0
+  Full text: LICENSES/Roboto-Slab-Apache-2.0.txt
+
+- All other files in this repository
+  License:   MIT No Attribution License
+  Full text: LICENSES/MIT-0.txt

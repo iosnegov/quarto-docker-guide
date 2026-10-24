@@ -1,4 +1,5 @@
-# **Quarto-Jupyter Multi-Language Configuration**
+# Quarto-Jupyter Multi-Language Configuration
+
 Cross-language execution requires special handling:
 - Default limitation: One kernel per notebook session
 - Solution: Use polyglot kernels like SoS/Polyglot
@@ -14,7 +15,8 @@ jupyter: sos-jupyter
 
 Kernel manages Python/R/Julia through cell magics
 
-# **Julia Multi-Language Configuration**
+# Julia Multi-Language Configuration
+
 Cross-language execution solutions for seamless integration:
 - Native interoperability: Julia provides direct language bridges
 - PythonCall.jl: Direct Python interoperability within Julia sessions
@@ -22,7 +24,6 @@ Cross-language execution solutions for seamless integration:
 
 Activation: 
 ```julia
-
 using PythonCall 
 py"..."
 
