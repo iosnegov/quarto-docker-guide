@@ -5,6 +5,17 @@
 [![License: MIT-0](https://img.shields.io/badge/License-MIT--0-blue.svg)](LICENSE.txt)
 [![Third-Party: Included](https://img.shields.io/badge/Third--Party-Included-orange.svg)](LICENSE.txt)
 
+> [!WARNING]
+> **Project Archived**
+> 
+> This project is no longer actively maintained. 
+> 
+> **Context:**  
+> Originally, this repository was conceived as an attempt to build a fully isolated, multi-language environment using a custom `Docker` and `Dev Container` approach to achieve a higher level of isolation than `conda` provides. Over time, I realized that the level of isolation provided by `conda` is actually sufficient for my workflow. Furthermore, I discovered [`pixi`](https://pixi.prefix.dev/latest/), a modern package manager that leverages `conda` packages to deliver the robust, reproducible environment management I was originally seeking — without the overhead of maintaining custom Docker images.
+> 
+> **Reason for Archiving:**  
+> Consequently, I no longer have an interest in further maintaining this custom Docker-based approach, as my workflow needs are now fully met by `pixi`. This repository remains available purely as an educational reference for those interested in building custom Docker and Dev Container environments from scratch.
+
 ## Project Philosophy
 
 This guide prioritizes **transparency over optimization**. Every package installation is explicitly documented and justified, allowing users to understand exactly what gets installed on their system and why. While not the most minimal approach, this methodology provides complete visibility into the environment construction process.
